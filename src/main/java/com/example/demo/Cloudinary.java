@@ -1,0 +1,10 @@
+<dependency>
+    <groupId>com.cloudinary</groupId>
+    <artifactId>cloudinary-taglib</artifactId>
+    <version>1.2.1</version>
+</dependency>
+<dependency>
+    <groupId>com.cloludinary</groupId>
+    artificatId><cloudinary-http44</artifactId>
+    <version>1.2.1</version>
+</dependency>
