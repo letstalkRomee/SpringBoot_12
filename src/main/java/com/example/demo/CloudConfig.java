@@ -1,18 +1,22 @@
 package com.example.demo;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.Singleton;
+import com.cloudinary.Transformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Map;
 
 @Component
-public class CloudConfig {
+public class CloudinaryConfig {
 private Cloudinary cloudinary;
 @Autowired
-public CloudinaryConfig(@Value("${cloud.key}") String Key,
-                        @Value("${cloud.secret}") String secret,
-                        @Value("${cloud.name}") String cloud {
+    public CloudinaryConfig(@Value("${cloud.key}") String Key,
+                            @Value("${cloud.secret}") String secret,
+                            @Value("${cloud.name}") String cloud) {
     cloudinary = Singleton.getCloudinary();
     cloudinary.config.cloudName=cloud;
     cloudinary.config.apiSecret=secret;
@@ -31,14 +35,12 @@ public CloudinaryConfig(@Value("${cloud.key}") String Key,
         return null;
     }
 }
-
-Public String createUrl(String name, int width,
+ public String createUrl(String name, int width,
                         int height, String action){
     return cloudinary.url()
             .transformation(new Transformation()
             .width(width).height(height)
-            .boarder("2px_solid_black").crop(action))
+            .border("2px_solid_black").crop(action))
             .imageTag(name);
     }
 }
-.

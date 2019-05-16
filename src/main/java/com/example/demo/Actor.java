@@ -9,17 +9,19 @@ import javax.persistence.Id;
 public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id
-    private String id;
-    private  String name;
-    private  String realname;
-    private  String headshot;
+    private long id;
+    private String name;
+    private String realname;
+    private String headshot;
+
+    public Actor() {
+    }
 
     public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -45,9 +47,5 @@ public class Actor {
 
     public void setHeadshot(String headshot) {
         this.headshot = headshot;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 }
